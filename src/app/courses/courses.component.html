@@ -1,0 +1,25 @@
+<table class="coursedata" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Likes</th>
+      <th>Author</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course1 of courses; let i=index">
+      <td>
+        {{ course1.name }}
+      </td>
+      <td>
+        <app-star [rating]=" course1.likes" 
+                  (Increment)="onIncrement(i)"></app-star>
+      </td>
+      <td>{{course1.author}}</td>
+      <td>
+        <a target="_blank" href="{{ course1.link }}">{{course1.name}}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

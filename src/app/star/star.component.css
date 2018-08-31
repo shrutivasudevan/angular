@@ -1,0 +1,13 @@
+.checked {
+    color: orange;
+    clear:both;
+  }
+.unchecked {
+    color:grey;
+}
+.crop{
+    overflow:hidden;
+}
+  div {
+    cursor: pointer;
+  }
