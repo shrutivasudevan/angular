@@ -10,8 +10,10 @@ import {StarComponent} from '../star/star.component';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+ 
   courses:course[];
 
+  constructor(private courselistService: CourselistService) {}
   increment(i:number){
     console.log(this.courses[i]);
     this.courses[i].likes=this.courses[i].likes+1;    
@@ -19,12 +21,14 @@ export class CoursesComponent implements OnInit {
   /*onIncrement(i:number):void{
     this.courses[i].likes=this.courses[i].likes+1;    
   }*/
-  constructor(private courselistservice:CourselistService) {
+  /*constructor(private courselistservice:CourselistService) {
     this.courses=this.courselistservice.getCourses();
-   }
-
+   }*/
+   
   ngOnInit() {
-    
+    this.courselistService.getCourses().subscribe(
+      cours => this.courses = cours
+    );
   }
   onIncrement(i:number): void {
     console.log("click called in course");
